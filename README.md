@@ -1,3 +1,17 @@
-# test
-てすとです。
-readME
+raspberry pi tool
+1.cpustat
+  cpu infomation
+2.info.py
+  Raspberry pi infomation
+
+
+#ラズベリーパイ向けのツールを置いておきます。
+cpustat.py
+  cpuの現在の状態(使用状況、温度)をレポートします。
+info.py
+  ラズパイの機種、cpi使用率、cpu温度を表示します。
+ 　*複数のラズパイを使い、sshでログインしていると、どのラズパイに居るか分からなくなるので、
+  　ただし、同じ機種を使っているとわからないけどね。
+   *本当はログインネームを変えるべきだけど、それだと面倒なので...
+   
+   
