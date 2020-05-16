@@ -127,8 +127,6 @@ def GetCpuStat():
     return  TckList
 
 
-#ブロードキャストにて発信
-
 def main():
     #イニシャライズ処理
     time.sleep(0.5)
@@ -148,7 +146,6 @@ def main():
     cpu_temp,cpu_rate,cpu_info = CpuInfo()
     print(cpu_info)
 
-    #ブロードキャストにて発信
     print(Raspi_info,ip,cpu_info)
 
 def destroy():
