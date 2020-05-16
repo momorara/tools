@@ -1,4 +1,4 @@
-# cat cpustat.py
+# cpustat.py
 
 # CPUのデータを取得します。
  
