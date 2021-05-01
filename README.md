@@ -22,3 +22,6 @@ gpio_gui02.py -.sh
    
 　　gpioの状態を確認するツール
   
+gui使うには以下をインストールしてください。
+pip3 install pysimplegui
+  
