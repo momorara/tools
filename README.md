@@ -3,6 +3,9 @@ raspberry pi tool
 
 #ラズベリーパイ向けのツールを置いておきます。
 
+ip_get_MakeFile.py
+    自分のipアドレスを取得しipアドレス名のファイルを作る
+
 cpustat.py
 
 　　cpuの現在の状態(使用状況、温度)をレポートします。
@@ -24,4 +27,5 @@ gpio_gui02.py -.sh
   
 gui使うには以下をインストールしてください。
 pip3 install pysimplegui
+  
   
