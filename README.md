@@ -2,8 +2,9 @@ raspberry pi tool
 
 
 #ラズベリーパイ向けのツールを置いておきます。
+
 git clone https://github.com/momorara/tools
-でダウンロード
+　でダウンロード
 
 ip_get_MakeFile.py
 
