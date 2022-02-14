@@ -7,7 +7,7 @@ git clone https://github.com/momorara/tools
 
 ip_get_MakeFile.py
 
-    自分のipアドレスを取得しipアドレス名のファイルを作る
+　　自分のipアドレスを取得しipアドレス名のファイルを作る
 
 cpustat.py
 
