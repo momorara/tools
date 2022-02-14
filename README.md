@@ -2,6 +2,8 @@ raspberry pi tool
 
 
 #ラズベリーパイ向けのツールを置いておきます。
+git clone https://github.com/momorara/tools
+でダウンロード
 
 ip_get_MakeFile.py
     自分のipアドレスを取得しipアドレス名のファイルを作る
