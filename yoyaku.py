@@ -5,6 +5,20 @@
 
 """
 
+
+import os
+import time
+path = os.getcwd() + '/' # 現在のパスを取得
+print(path)
+
+import webbrowser
+uri = 'file:///' + path + 'reserveBoard.html'
+print(uri)
+webbrowser.open_new_tab(uri)
+
+
+
+
 import os
 import sys
 import getpass
@@ -13,11 +27,14 @@ import time
 import shutil
 from tkinter import *
 from tkinter import ttk
-
+import subprocess
 
 path = os.getcwd() + '/' # 現在のパスを取得
 print(path)
 
+prog =  'sudo ' + path + 'reserveBoard.html'
+print(prog)
+subprocess.run(prog, shell=True)
 
 # 排他処理
 #　ファイルがあるか無いかを確認する。
@@ -76,8 +93,13 @@ if not os.path.exists(path + 'reserveBoard.html'):
     shutil.copyfile(folderDir + 'hinagata/' + "reserveBoard.html", path + "reserveBoard.html")
 
 # 掲示板表示
-with open(path + "reserveBoard.html", mode='a') as f: #追記
-    f.write('追記')
+import webbrowser
+uri = 'file:///' + path + 'reserveBoard.html'
+print(uri)
+webbrowser.open_new_tab(uri)
+
+# with open(path + "reserveBoard.html", mode='a') as f: #追記
+#     f.write('追記')
 
 #------------ 処理関数 ------------------------
 # 登録処理
