@@ -164,7 +164,14 @@ def data_seiri():
 	print(len(touroku),touroku)
 	
 	# 掲示板の申込数を更新
-	
+	index1 = htmlData.find('_') # 申込人数の頭を探す
+	index2 = htmlData.find('／') # 申込人数の頭を探す
+	moushikomi = htmlData[index1:index2] # 
+	print(index1,index2,moushikomi)
+	moushikomi_new = "_申込" + str(len(touroku)) + "名"
+	htmlData = htmlData.replace(moushikomi,moushikomi_new)
+	with open(path + 'reserveBoard.html', mode='w') as f: #上書き
+		f.write(htmlData)
 
 
 #--------------------UI作成-------------------------
