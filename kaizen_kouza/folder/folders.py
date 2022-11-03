@@ -1,11 +1,13 @@
 """
-フォルダのリストを作る by.kawabata
+フォルダのリストを作る
 
 複数フォルダーに対して、htmlデータを取得し、
 登録 id telをリスト化します。
 
 """
 import os
+
+
 
 
 # ------------ 環境確認 ------------------------
@@ -30,7 +32,7 @@ def data_seiri(htmlData):
     # print(len(touroku),touroku)
     # ユニークな要素だけにする
     touroku_tel = list(dict.fromkeys(touroku_tel))
-    print(len(touroku_tel),touroku_tel)
+    # print(len(touroku_tel),touroku_tel)
 
     touroku_id = []
     index = htmlData.find(':') # 登録を探す
@@ -42,7 +44,9 @@ def data_seiri(htmlData):
     # print(len(touroku),touroku)
     # ユニークな要素だけにする
     touroku_id = list(dict.fromkeys(touroku_id))
-    print(len(touroku_id),touroku_id)
+    # print(len(touroku_id),touroku_id)
+
+    return touroku_tel,touroku_id
 
 
 def html_read(html_path):# htmlデータを読み込む
@@ -59,21 +63,56 @@ def html_read(html_path):# htmlデータを読み込む
     return htmlData
 
 
-for folder in folders:
-    print(folder)
-    html_path = path + folder + '/reserveBoard.html'
-    # フォルダのhtmlを表示
-    # uri = 'file:///' + data_path
-    # print(uri)
-    # webbrowser.open_new(uri)
+import csv
+# 2要素を辞書型でcsvから読み込む
+address = {}
+with open(path + 'addres.csv', mode='r') as inp:
+    reader = csv.reader(inp)
+    address = {rows[0]:(rows[1],rows[2]) for rows in reader}
+print(address)
 
-    htmlData = html_read(html_path)
-    data_seiri(htmlData)
+ad1,ad2 = address['1111']
+print(ad1,ad2)
 
-    # index = htmlData.find('v0.') 
-    # data = htmlData[index:index+5]
-    # print(data)
 
+
+
+exit(0)
+
+print()
+
+# print(address['1117'])
+# print(prof['1117'])
+
+print(address['3333'])
+print(prof['3333'])
+
+html_path = path + '20221125' + '/reserveBoard.html'
+
+htmlData = html_read(html_path)
+touroku_tel,touroku_id = data_seiri(htmlData)
+print(len(touroku_tel),touroku_tel)
+print(len(touroku_id),touroku_id)
+
+for touroku in touroku_tel:
+    print(type(touroku),touroku)
+    print(address[touroku],prof[touroku])
+
+
+
+
+# for folder in folders:
+#     print(folder)
+#     html_path = path + folder + '/reserveBoard.html'
+#     # フォルダのhtmlを表示
+#     # uri = 'file:///' + data_path
+#     # print(uri)
+#     # webbrowser.open_new(uri)
+
+#     htmlData = html_read(html_path)
+#     touroku_tel,touroku_id = data_seiri(htmlData)
+#     print(len(touroku_tel),touroku_tel)
+#     print(len(touroku_id),touroku_id)
 
     
 
