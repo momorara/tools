@@ -93,14 +93,14 @@ def html_read(html_path):# htmlデータを読み込む
 
 import csv
 # 2要素を辞書型でcsvから読み込む
-address = {}
-with open(folderDir1 + 'hinagata\\' + 'address.csv', mode='r') as inp:
+tel_address = {}
+with open(folderDir1 + 'hinagata\\' + 'tel_address.csv', mode='r') as inp:
     reader = csv.reader(inp)
-    address = {rows[4]:(rows[0],rows[2]) for rows in reader}
-# print(address)
+    tel_address = {rows[4]:(rows[0],rows[2]) for rows in reader}
+# print(tel_address)
 
 #tel_number = '3000'
-#ad1,ad2 = address[tel_number]
+#ad1,ad2 = tel_address[tel_number]
 #print()
 #print(ad1,ad2)
 
@@ -117,7 +117,7 @@ for folder in folders:
     # 内線番号から名前、所属を取得
     for tel_number in touroku_tel:
         try:
-            ad1,ad2 = address[tel_number]
+            ad1,ad2 = tel_address[tel_number]
             print(tel_number,ad1,ad2)
         except:
             print(tel_number,'key errpr')
@@ -126,7 +126,7 @@ for folder in folders:
     with open(folder + '.csv', 'w', newline="") as f:
         writer = csv.writer(f)
         for tel_number in touroku_tel:
-            ad1,ad2 = address[tel_number]
+            ad1,ad2 = tel_address[tel_number]
             writer.writerow([tel_number,ad1,ad2])
 
 
