@@ -72,15 +72,15 @@ def html_read(html_path):
 
 # hinaから掲示板をコピー　初回のみ
 if not os.path.exists(html_path):
-    # hinagataから掲示板をコピー
+    # kihon_dataから掲示板をコピー
     # print(folderDir1)
     # print('html copy',folderDir1)
     shutil.copyfile(
     folderDir1 +
-    'hinagata/' +
+    'kihon_data/' +
     "reserveBoard.html",
     html_path)
-    # shutil.copyfile(folderDir1 + 'hinagata\\' + "reserveBoard.html",html_path)
+    # shutil.copyfile(folderDir1 + 'kihon_data\\' + "reserveBoard.html",html_path)
     # YYYMMDDを当該日付に変更
     htmlData = html_read(html_path)    
     htmlData = htmlData.replace('YYYYMMDD', folderName1)
@@ -96,11 +96,11 @@ webbrowser.open_new(uri)
 
 # ------------ 人名、所属データ読み込み ------------------------
 # 2要素を辞書型でcsvから読み込む
-address = {}
-with open(folderDir1 + 'hinagata\\' + 'address.csv', mode='r') as inp:
+tel_address = {}
+with open(folderDir1 + 'kihon_data\\' + 'tel_address.csv', mode='r') as inp:
     reader = csv.reader(inp)
-    address = {rows[4]:(rows[0],rows[2]) for rows in reader}
-# print(address)
+    tel_address = {rows[4]:(rows[0],rows[2]) for rows in reader}
+# print(tel_address)
 
 # ------------ 処理関数 ------------------------
 # ファイル更新処理
@@ -150,7 +150,7 @@ def tel_number_check(tel_number):
     else:
         # アドレスデータに記載のある内線番号か確認
         try:
-            ad1,ad2 = address[str(tel)]
+            ad1,ad2 = tel_address[str(tel)]
             print(tel_number,ad1,ad2)
         except:
             print('tel_number_key error')
@@ -246,7 +246,7 @@ def data_seiri():
         t1 = str(touroku_n +1)
         t2 = str(touroku[touroku_n])
         #print('t2',t2)
-        ad1,ad2 = address[t2]
+        ad1,ad2 = tel_address[t2]
         t3 = t2 + ' ' + ad1 + '  @ ' + ad2
         #print('t3',t3)
         mesg = "<tr><td align=" + """left""" + ">" + "<font color=" + """blue""" + ">" + t1 + ':' + userID + "</font>#" + "<font size=" + """2""" + ">" + "_+" + t3 + "</font>" +  "</td></tr>"
