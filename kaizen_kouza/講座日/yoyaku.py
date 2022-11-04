@@ -2,8 +2,9 @@
 講座予約 by.kawabata
 
 2022/11/01  開発開始
-2022/11/02    html表示
+2022/11/02  html表示
             内線番号化、掲示板整理
+2022/11/04	氏名、所属表示
 
 """
 import webbrowser
@@ -16,6 +17,7 @@ import shutil
 from tkinter import *
 from tkinter import ttk
 import subprocess
+import csv
 
 
 # ------------ 環境確認 ------------------------
@@ -24,6 +26,7 @@ print(path)
 html_path = path + 'reserveBoard.html' 
 
 print('step1')
+time.sleep(0)
 
 # 自分のいるフォルダ名を取得
 # フォルダ名 os.path.dirname()
@@ -31,8 +34,9 @@ dir = os.path.dirname(path)
 print('dir:', dir)
 # index =dir.rfind("kaizen_kouza") +13
 index =dir.rfind('/') +1
-# index = dir.rfind('\\') + 1  # バックスラッシュの検索はややこしいね。
-# print('index:',index)
+if index < 1 :
+    index = dir.rfind('\\') + 1  # バックスラッシュの検索はややこしいね。
+print('index:',index)
 folderName1 = dir[index:]
 print('folderName1:', folderName1)
 folderDir1 = dir[:index]
@@ -48,6 +52,9 @@ print('folderName2:', folderName2)
 # userID取得
 userID = getpass.getuser()
 print('userID:', userID)
+
+print('step11')
+time.sleep(0)
 
 def html_read(html_path):
     try:
@@ -87,6 +94,13 @@ print(uri)
 webbrowser.open_new(uri)
 # webbrowser.open_new_tab(uri)
 
+# ------------ 人名、所属データ読み込み ------------------------
+# 2要素を辞書型でcsvから読み込む
+address = {}
+with open(folderDir1 + 'hinagata\\' + 'address.csv', mode='r') as inp:
+    reader = csv.reader(inp)
+    address = {rows[4]:(rows[0],rows[2]) for rows in reader}
+# print(address)
 
 # ------------ 処理関数 ------------------------
 # ファイル更新処理
@@ -131,8 +145,17 @@ def tel_number_check(tel_number):
     print(type(tel_number),tel_number)
     try:   tel = int(tel_number)
     except:tel = 0
-    if tel > 9999 or tel < 1000 : tel = -1
-    return tel # あり得ない番後の時は-1
+    if tel > 8000 or tel < 2000 : # 2022現在の番号運用範囲
+        tel = -1
+    else:
+        # アドレスデータに記載のある内線番号か確認
+        try:
+            ad1,ad2 = address[str(tel)]
+            print(tel_number,ad1,ad2)
+        except:
+            print('tel_number_key error')
+            tel = -1
+    return tel # あり得ない番号の時は-1
 
 # 内線番号がおかしい場合
 def tel_error():
@@ -222,7 +245,11 @@ def data_seiri():
     for touroku_n in range (len(touroku)): 
         t1 = str(touroku_n +1)
         t2 = str(touroku[touroku_n])
-        mesg = "<tr><td align=" + """left""" + ">" + "<font color=" + """blue""" + ">" + t1 + ':' + userID + "</font>#" + "_+" + t2 + "</td></tr>"
+        #print('t2',t2)
+        ad1,ad2 = address[t2]
+        t3 = t2 + ' ' + ad1 + '  @ ' + ad2
+        #print('t3',t3)
+        mesg = "<tr><td align=" + """left""" + ">" + "<font color=" + """blue""" + ">" + t1 + ':' + userID + "</font>#" + "<font size=" + """2""" + ">" + "_+" + t3 + "</font>" +  "</td></tr>"
         # htmlData.append(mesg)
         with open(html_path, mode='a') as f:  # 上書き
             f.write(mesg)
@@ -279,4 +306,3 @@ root.mainloop()
 
 
 # 終了処理
-
