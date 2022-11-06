@@ -11,21 +11,26 @@ import copy
 
 
 kouza_folder_name = 'kaizen_kouza'
+kanri_folder_name = 'kanri_kaizen'
 
 
 # ------------ 環境確認 ------------------------
 path = os.getcwd() + '/'
-print(path)
+print('path      :',path)
 os.chdir('..')
-path1 = os.getcwd() + '/' + kouza_folder_name+ '/'
-print(path1)
-os.chdir(path1)
+path_kouza = os.getcwd() + '/' + kouza_folder_name+ '/'
+path_kanri = os.getcwd() + '/' + kanri_folder_name+ '/'
+print('path_kanri:',path_kanri)
+print('path_kouza:',path_kouza)
+os.chdir(path_kanri)
 path = os.getcwd() + '/'
-print(path)
+print('now       :',path)
+
+
 
 # 同一パスにあるフォルダー(dir)のみリスト化する
-files = os.listdir(path)
-folders = [f for f in files if os.path.isdir(os.path.join(path, f))]
+files = os.listdir(path_kouza)
+folders = [f for f in files if os.path.isdir(os.path.join(path_kouza, f))]
 # print(folders)    # ['dir1', 'dir2']
 # 20220101以上の数字フォルダだけにする
 folders_cp = copy.copy(folders)
@@ -42,7 +47,7 @@ print(folders)
 
 for folder in folders:
     # ------------ 掲示板表示 ------------------------
-    uri = 'file:///' + path + folder +'/reserveBoard.html' 
+    uri = 'file:///' + path_kouza + folder +'/reserveBoard.html' 
     print(uri)
     webbrowser.open_new(uri)
 
