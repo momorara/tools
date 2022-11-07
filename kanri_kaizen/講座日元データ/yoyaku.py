@@ -1,4 +1,5 @@
 """
+yoyaku.py
 講座予約 by.kawabata
 
 2022/11/01  開発開始
