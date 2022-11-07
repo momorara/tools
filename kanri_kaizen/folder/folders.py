@@ -10,7 +10,8 @@ tel_addressにはmailがないので、mail_addreeからmailを持ってきて�
 
 講座申込リストを講習日毎にcsvで作る。
 
-2folder化 ?
+2folder化 
+20221107	AMPM対応
 """
 import os
 import time
@@ -39,7 +40,7 @@ if index < 1 :
 folderName1 = dir[index:]
 #print('folderName1:', folderName1)
 folderDir1 = dir[:index]
-#print('folderDir1:', folderDir1)
+print('folderDir1:', folderDir1)
 
 folderDir2 = folderDir1[:-1]
 #print('folderDir2:', folderDir2)

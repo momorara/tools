@@ -1,3 +1,4 @@
+
 """
 touroku_ing.py
 現在募集中の掲示板を表示する。
@@ -34,13 +35,16 @@ files = os.listdir(path_kouza)
 folders = [f for f in files if os.path.isdir(os.path.join(path_kouza, f))]
 # print(folders)    # ['dir1', 'dir2']
 # 20220101以上の数字フォルダだけにする
+# AM,PNM対応する
 folders_cp = copy.copy(folders)
 for folder in folders_cp:
     # 文字か数字か判定　数字で20220101以上なら 1
     flag = 0
-    if str.isdigit(folder):
-        folder_int = int(folder)
-        if int(folder) >20220100:
+    folder_int = folder[:8]
+    #print('**',folder_int)
+    if str.isdigit(folder_int):
+        folder_int = int(folder_int)
+        if int(folder_int) >20220100:
             flag = 1
     if flag == 0:
         folders.remove(folder)
@@ -51,4 +55,3 @@ for folder in folders:
     uri = 'file:///' + path_kouza + folder +'/reserveBoard.html' 
     print(uri)
     webbrowser.open_new(uri)
-
