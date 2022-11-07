@@ -1,4 +1,5 @@
 """
+touroku_ing.py
 現在募集中の掲示板を表示する。
 by.kawabata
 
