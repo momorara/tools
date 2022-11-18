@@ -70,7 +70,11 @@ def passRead():
         passWord = f.read()
     return passWord
 
-
+def passget():
+	passText = passRead()
+	return passReturn(passText)
+	
+	
 passW = 'kawabatatacanobu1234567890'
 passW = 'Nobu4444_test123'
 print(passW)
@@ -91,3 +95,4 @@ print('--3--')
 
 passW = passReturn(passW)
 print(passW)
+
