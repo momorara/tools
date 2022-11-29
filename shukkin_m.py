@@ -10,21 +10,20 @@ login02.py
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.edge.service import Service as EdgeService
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from subprocess import CREATE_NO_WINDOW
+from selenium.webdriver.common.by import By
+import signal
 
 import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 import os
 import getpass
-from subprocess import CREATE_NO_WINDOW
+import sys
 
 from tkinter import *
 from tkinter import ttk
-import sys
 
-from selenium.webdriver.edge.service import Service as EdgeService
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-import signal
 
 userName = getpass.getuser()
 print(userName)

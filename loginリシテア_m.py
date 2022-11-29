@@ -10,25 +10,23 @@ loginリシテア.py
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service as EdgeService
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+import signal
 
 import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+import sys
 import os
 import getpass
 from subprocess import CREATE_NO_WINDOW
 
 from tkinter import *
 from tkinter import ttk
-import sys
 
-from selenium.webdriver.edge.service import Service as EdgeService
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-import signal
 
 userName = getpass.getuser()
 print(userName)
-
 
 path = os.getcwd() + '/' # 現在のパスを取得
 print(path)
