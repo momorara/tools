@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>pyscript</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - paths:
+          - ./test.py
+      </py-env>
+  </head>
+  <body>
+    <h1>PyScriptを使ってみる</h1> 
+    <py-script> 
+with open('testpy.txt', mode='w') as f: #上書き
+    f.write(str('1960'))
+import test
+prin() 
+    </py-script> 
+  </body>
+</html>
