@@ -7,15 +7,24 @@
     <py-env>
         - paths:
           - ./test.py
+          - ./test.txt
       </py-env>
   </head>
   <body>
     <h1>PyScriptを使ってみる</h1> 
     <py-script> 
-with open('testpy.txt', mode='w') as f: #上書き
+
+
+with open('test.txt', mode='a') as f: #上書き
     f.write(str('1960'))
-import test
+
+
+from test import prin
 prin() 
+with open('./test.txt') as f:
+    data = f.read()
+print(data)
+
     </py-script> 
   </body>
 </html>
