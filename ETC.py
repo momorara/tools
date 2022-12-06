@@ -17,7 +17,7 @@ import os
 
 # ETCページのログイン情報
 ID = '383210'
-passWord   = 'eng383210'
+passWord   = ''
 
 # ETCページのURL
 ETC_URL = "https://www2.etc-meisai.jp/etc/R?funccode=1013000000&nextfunc=1013000000"
