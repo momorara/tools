@@ -1,8 +1,0 @@
-yoyaku.py	講座申込メイン			講座日元データをkaizen_kouzaにコピーして使用
-folders.py	申込者のリストを作る		講座日フォルダをfolderへコピーしその場で使用
-touroku_ing.py	現在の講座申込中のURLを全て開く	その場で使用
-touroku_situation.py 現在の申込状況を表示	その場で使用
-
-アドレスデータ
-内線番号、氏名、所属	tel_address.csv		全社内線番号からダウンロード
-氏名、所属、mail	mail_address.csv　	
