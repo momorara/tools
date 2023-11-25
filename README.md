@@ -3,6 +3,10 @@ raspberry pi tool
 
 #ラズベリーパイ向けのツールを置いておきます。
 
+LED-Checker組立説明書v1.pdf
+その名の通りです。
+
+
 git clone https://github.com/momorara/tools
 　でダウンロード
 
