@@ -1,0 +1,50 @@
+
+・Bluetoothボタンとのペアリング
+
++++ event番号確認
+ls /dev/input とする
+by-id  by-path  event0  event1  event2  event3  event4 mice  mouse0
+シャッターボタンの電源を入れて
+ls /dev/input とする
+by-id  by-path  event0  event1  event2  event3  event4  event5  event6  mice  mouse0
+
+この場合event5がこのボタンのイベントNoだ。
+
++++ 次にペアリング設定をする。
+シャッターボタンの電源を入れて
+bluetoothctl
+
+対話モードが始まります。
+[bluetooth]#
+スキャンする
+scan on
+
+信号が見つかれば、
+[NEW] Device FF:FF:50:03:E2:AF AB Shutter3 
+ボタンによりABだったりCWだったり色々あるみたい。
+
+シャッターボタンのMACアドレスを指定してペアリングを行います。
+pair FF:FF:50:03:E2:AF
+
+Pairing successfulなど色々表示出て以下のような表示になります。
+[AB Shutter3 ]#
+
+MACアドレスを指定して接続を行います。
+connect FF:FF:50:03:E2:AF
+成功すると以下の表示が出ます。
+Connection successful
+
++++ 最後に再接続できるようにします。
+これを行うとシャッターボタンの電源をOFF/ONしても自動的に繋がるようになります。
+trust FF:FF:50:03:E2:AF
+
+成功すると以下の表示が出ます。
+[CHG] Device FF:FF:50:03:E2:AF Trusted: yes
+Changing FF:FF:50:03:E2:AF trust succeeded
+
+対話モードを終了
+exit
+
+一度trustまでしていると
+ABでもCWでも、自動的に繋がりますね。
+
