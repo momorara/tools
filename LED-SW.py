@@ -6,7 +6,7 @@ led = LED(17)     # GPIO #17をLEDに設定
 sw = Button(6)    # GPIO #5をSWに設定
 
 # LED点滅 
-for  i  in  range(5):  # 10回繰り返す
+for  i  in  range(5):  # 5回繰り返す
      led.on() 
      time.sleep(0.5)   # 0.5秒待機
      led.off() 
