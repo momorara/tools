@@ -1,9 +1,9 @@
 from gpiozero import LED, Button 
 import time
-
+# LED点滅 
 # LEDとスイッチのピン設定 
 led = LED(17)     # GPIO #17をLEDに設定
-sw = Button(6)    # GPIO #5をSWに設定
+sw = Button(6)    # GPIO #6をSWに設定
 
 # LED点滅 
 for  i  in  range(5):  # 5回繰り返す
