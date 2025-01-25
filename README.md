@@ -44,4 +44,6 @@ pip3 install pysimplegui
 https://www.facebook.com/groups/3773038759434230
 "Raspberry Pi Japan"でお願いします。
 *上記プログラムを使用しての不具合等については一切責任を持ちませんので、よろしくお願いします。
+
+サポートコミュニティー　https://www.facebook.com/groups/3773038759434230<br>
   
